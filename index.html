@@ -1,0 +1,28 @@
+<head>
+  <title>Lightscript IDE</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <textarea id="input" spellcheck="false"></textarea>
+
+  <div id="buttons">
+    <button id="run" onclick="run()">Run</button>
+    <a href="/"><button id="clear" onclick="">Clear</button></a>
+    <a href="/docs.html" target="_blank" rel="noopener noreferrer"><button id="docs" onclick="">Documentation</button></a>
+  </div>
+
+  <h2 id="title">Lightscript IDE</h2>
+  <div id="output"></div>
+  <canvas id="display" width="100" height="100"></canvas>
+
+  <!-- Script Imports -->
+  <script src="lightscript/lexer.js"></script>
+  <script src="lightscript/ast.js"></script>
+  <script src="lightscript/parser.js"></script>
+  <script src="lightscript/values.js"></script>
+  <script src="lightscript/scope.js"></script>
+  <script src="lightscript/interpreter.js"></script>
+  <script src="libraries.js"></script>
+  <script src="script.js"></script>
+</body>
