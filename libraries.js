@@ -69,6 +69,18 @@ function importLibraries(scope) {
     ctx.fillStyle = args[0].value;
   }));
 
+  scope.declareVariable("setCanvasStrokeColor", new NativeFunction((args, scope) => {
+    if (!ctx) throw "Canvas hasn't been initialized. Try canvas(number, number).";
+
+    ctx.strokeStyle = args[0].value;
+  }));
+
+  scope.declareVariable("setCanvasLineWidth", new NativeFunction((args, scope) => {
+    if (!ctx) throw "Canvas hasn't been initialized. Try canvas(number, number).";
+
+    ctx.lineWidth = args[0].value;
+  }));
+
   scope.declareVariable("clearCanvas", new NativeFunction((args, scope) => {
     if (!ctx) throw "Canvas hasn't been initialized. Try canvas(number, number).";
 
@@ -81,6 +93,16 @@ function importLibraries(scope) {
     ctx.beginPath();
     ctx.arc(args[0].value, args[1].value, args[2].value, 0, 2 * Math.PI);
     ctx.fill();
+  }));
+
+
+  scope.declareVariable("strokeLine", new NativeFunction((args, scope) => {
+    if (!ctx) throw "Canvas hasn't been initialized. Try canvas(number, number).";
+    
+    ctx.beginPath();
+    ctx.moveTo(args[0].value, args[1].value); 
+    ctx.lineTo(args[2].value, args[3].value);
+    ctx.stroke();
   }));
 
   scope.declareVariable("addElement", new NativeFunction((args, scope) => {
